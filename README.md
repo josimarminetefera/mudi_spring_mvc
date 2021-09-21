@@ -1,2 +1,2 @@
 # mudi_spring_mvc
- Projeto Spring Mvc com app usando tymeleaf e Bootstrap
+ Projeto Spring MVC usando Thymeleaf e Bootstrap
