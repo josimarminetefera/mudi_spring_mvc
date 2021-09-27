@@ -22,8 +22,10 @@ public class HomeController {
 	@Autowired
 	private PedidoRepository pedidoRepository;
 
+	// Model model é uma interface para mostrar coisas para o usuário
 	@GetMapping
 	public String home(Model model) {
+		// pedidoRepository é quem sabe se comunicar com o banco de dados
 		List<Pedido> pedidos = pedidoRepository.findAll();
 		model.addAttribute("pedidos", pedidos);
 		return "home";
