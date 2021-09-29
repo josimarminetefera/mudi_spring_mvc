@@ -18,13 +18,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
 		// todas requisições usário tem que estar autenticado
-		http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+		http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
 	}
 
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
-		UserDetails user = User.withDefaultPasswordEncoder().username("1").password("1").roles("ADM").build();
+		UserDetails user = User.withDefaultPasswordEncoder().username("oi").password("oi").roles("ADM").build();
 
 		return new InMemoryUserDetailsManager(user);
 	}
