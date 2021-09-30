@@ -1,5 +1,6 @@
 package br.com.alura.mvc.mudi_spring_mvc.controller;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,10 +24,11 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 
 	// Model model é uma interface para mostrar coisas para o usuário
+	// Principal principal voce consegue recuperar dados do usuário e regras
 	@GetMapping
-	public String home(Model model) {
+	public String home(Model model, Principal principal) {
 		// pedidoRepository é quem sabe se comunicar com o banco de dados
-		List<Pedido> pedidos = pedidoRepository.findAll();
+		List<Pedido> pedidos = pedidoRepository.findAllByUsuario(principal.getName());
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}
