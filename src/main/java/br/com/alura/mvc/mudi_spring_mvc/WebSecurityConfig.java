@@ -18,7 +18,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
 		// todas requisições usário tem que estar autenticado
-		http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
+		http
+		.authorizeRequests()
+			.anyRequest()
+			.authenticated()
+		.and()
+		.formLogin(form -> form
+            .loginPage("/login")
+            .permitAll()
+        )
+		.logout(logout -> logout.logoutUrl("/logout"));
 	}
 
 	@Bean
