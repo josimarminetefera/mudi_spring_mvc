@@ -12,8 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.ManyToAny;
-
 @Entity
 public class Pedido {
 
@@ -33,6 +31,14 @@ public class Pedido {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public String getNomeProduto() {
 		return nomeProduto;
