@@ -26,30 +26,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
-		// todas requisições usário tem que estar autenticado
 		http
 		.authorizeRequests()
-			.anyRequest()
-			.authenticated()
+			.anyRequest().authenticated() // todas requisições o usuário tem que estar autenticado
 		.and()
 		.formLogin(form -> form
             .loginPage("/login")
-            .defaultSuccessUrl("/home", true)
+            .defaultSuccessUrl("/home", true)//isso aqui força toda vez que o usuário logar ele ir para /home
             .permitAll()
         )
-		.logout(logout -> logout.logoutUrl("/logout"))
+		.logout(logout -> logout.logoutUrl("/logout"))// logout vai deslogar o usário 
 		.csrf().disable();
 	}
 
-	//indicar que ai trabalhar com jdbc autentication
+	//este configure indica que vai trabalhar com jdbc autentication
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		//criar usuário inicial
 		//UserDetails user = User.builder().username("joao").password(encoder.encode("joao")).roles("ADM").build();
-		System.out.println("Teste");
-		System.out.println(encoder.encode("josimar"));
+		System.out.println("encoder");
 		//System.out.println(user.getPassword());
 		System.out.println(encoder);
 		
