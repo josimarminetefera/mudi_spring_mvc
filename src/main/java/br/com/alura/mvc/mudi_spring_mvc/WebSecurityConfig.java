@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
 		http
 		.authorizeRequests()
+			.antMatchers("/home/**").permitAll() // pagina home aceita sem estar logado
 			.anyRequest().authenticated() // todas requisições o usuário tem que estar autenticado
 		.and()
 		.formLogin(form -> form
@@ -35,7 +36,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .defaultSuccessUrl("/usuario/pedido", true)//isso aqui força toda vez que o usuário logar ele ir para /home
             .permitAll()
         )
-		.logout(logout -> logout.logoutUrl("/logout"))// logout vai deslogar o usário 
+		.logout(logout -> {
+			logout.logoutUrl("/logout")
+			.logoutSuccessUrl("/home");
+		})// logout vai deslogar o usário 
 		.csrf().disable();
 	}
 
@@ -45,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		//criar usuário inicial
-		//UserDetails user = User.builder().username("joao").password(encoder.encode("joao")).roles("ADM").build();
+		//UserDetails user = User.builder().username("maria").password(encoder.encode("joao")).roles("ADM").build();
 		System.out.println("encoder");
 		//System.out.println(user.getPassword());
 		System.out.println(encoder);
