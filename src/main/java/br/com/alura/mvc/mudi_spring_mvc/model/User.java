@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users")//isso aqui é para mapear com um nome especifico
 public class User {
 
 	@Id
@@ -18,6 +18,8 @@ public class User {
 	private String password;
 	private Boolean enabled;
 
+	//um usuário tem vários pedidos
+	//FetchType.LAZY não carrega os pedidos quando carregar os dados do usuário
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Pedido> pedidos;
 

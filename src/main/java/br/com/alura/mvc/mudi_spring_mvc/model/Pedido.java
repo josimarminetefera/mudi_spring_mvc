@@ -29,6 +29,8 @@ public class Pedido {
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
 
+	//varios pedidos pode ter um usuário
+	//FetchType.LAZY faz com que os dados não sejam carregados quando for criado o pedido
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 

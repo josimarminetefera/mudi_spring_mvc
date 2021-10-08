@@ -22,7 +22,7 @@ public class PedidoController {
 
 	@Autowired
 	private PedidoRepository pedidoRepository;
-	
+
 	@Autowired
 	private UserRepository userRepository;
 
@@ -41,9 +41,9 @@ public class PedidoController {
 			System.out.println("Ruim tem erro");
 			return "pedido/formulario";
 		}
-		
+		// getAuthentication()=São todos os dados do usuário logado
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+
 		Pedido pedido = requisicao.toPedido();
 		User user = userRepository.findByUsername(username);
 		pedido.setUser(user);

@@ -24,11 +24,11 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 
 	// Model model é uma interface para mostrar coisas para o usuário
-	// Principal principal voce consegue recuperar dados do usuário e regras
+	// Principal principal voce consegue recuperar dados do usuário logado e regras
 	@GetMapping
 	public String home(Model model, Principal principal) {
 		// pedidoRepository é quem sabe se comunicar com o banco de dados
-		List<Pedido> pedidos = pedidoRepository.findAllByUsuario(principal.getName());
+		List<Pedido> pedidos = pedidoRepository.findAll();
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}

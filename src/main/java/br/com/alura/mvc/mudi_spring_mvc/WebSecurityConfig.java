@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.formLogin(form -> form
             .loginPage("/login")
-            .defaultSuccessUrl("/home", true)//isso aqui força toda vez que o usuário logar ele ir para /home
+            .defaultSuccessUrl("/usuario/pedido", true)//isso aqui força toda vez que o usuário logar ele ir para /home
             .permitAll()
         )
 		.logout(logout -> logout.logoutUrl("/logout"))// logout vai deslogar o usário 
