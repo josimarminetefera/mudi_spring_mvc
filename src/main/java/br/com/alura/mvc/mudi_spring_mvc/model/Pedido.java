@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Pedido {
 
@@ -32,8 +34,9 @@ public class Pedido {
 	//varios pedidos pode ter um usuário
 	//FetchType.LAZY faz com que os dados não sejam carregados quando for criado o pedido
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
 	private User user;
-
+	
 	public User getUser() {
 		return user;
 	}
