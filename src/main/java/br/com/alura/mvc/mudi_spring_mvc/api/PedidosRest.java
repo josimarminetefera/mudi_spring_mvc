@@ -27,6 +27,8 @@ public class PedidosRest {
 		// PAGINAÇÃO DE ITENS
 		PageRequest paginacao = PageRequest.of(0, 10, sort);
 		
-		return pedidoRepository.findByStatus(StatusPedido.AGUARDANDO, paginacao);
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.AGUARDANDO, paginacao);
+		
+		return pedidos;
 	}
 }

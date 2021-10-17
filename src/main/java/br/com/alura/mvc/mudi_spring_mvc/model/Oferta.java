@@ -26,14 +26,6 @@ public class Oferta {
 	@ManyToOne(fetch = FetchType.LAZY) // para não carregar os dados do pedido
 	private Pedido pedido;
 
-	public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -64,5 +56,13 @@ public class Oferta {
 
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 }

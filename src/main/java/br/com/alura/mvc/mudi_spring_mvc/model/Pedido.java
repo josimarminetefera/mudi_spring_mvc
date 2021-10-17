@@ -43,32 +43,8 @@ public class Pedido {
 
 	// um pedido tem uma lista de ofertas
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Oferta> ofertas;
-
-	public User getUser() {
-		return user;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public List<Oferta> getOfertas() {
-		return ofertas;
-	}
-
-	public void setOfertas(List<Oferta> ofertas) {
-		this.ofertas = ofertas;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
@@ -117,12 +93,36 @@ public class Pedido {
 		this.descricao = descricao;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public StatusPedido getStatus() {
 		return status;
 	}
 
 	public void setStatus(StatusPedido status) {
 		this.status = status;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
 	}
 
 }
