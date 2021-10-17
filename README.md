@@ -1,6 +1,7 @@
 # mudi_spring_mvc
  Projeto Spring MVC usando Thymeleaf e Bootstrap
 ## Criar no banco de dados
+cruar o banco de dados 'mudi'
 
 create table users(
     username varchar(50) not null primary key,
