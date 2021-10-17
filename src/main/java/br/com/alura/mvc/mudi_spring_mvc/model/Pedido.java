@@ -45,6 +45,7 @@ public class Pedido {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Oferta> ofertas;
+	//se esta lista aqui não vai para o banco então não vou salvar alista de ofertas do pedido
 
 	public String getNomeProduto() {
 		return nomeProduto;

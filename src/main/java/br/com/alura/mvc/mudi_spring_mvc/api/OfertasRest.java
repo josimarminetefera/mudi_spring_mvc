@@ -33,7 +33,7 @@ public class OfertasRest {
 		
 		Oferta novaOferta = requisicao.toOferta();
 		novaOferta.setPedido(pedido);
-		pedido.getOfertas().add(novaOferta);
+		//pedido.getOfertas().add(novaOferta);
 		pedidoRepository.save(pedido);
 		
 		return novaOferta;
