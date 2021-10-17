@@ -67,6 +67,7 @@
 					      .get('http://localhost:8080/api/pedidos/aguardando')
 					      .then(response => {
 					    	  	response.data.forEach(pedido =>{
+					    	  		//cria parametros que não tem dentro do model mas precisa para montar a tela 
 					    	  		pedido.ofertaEnviada = false;
 					    	  		pedido.erros = {
 					    	  			valor: '',
@@ -78,6 +79,7 @@
 					},
 					methods: {
 						enviarOferta: function(pedido) {
+							//limpa os erros antes de fazer a requisição
 							pedido.erros = {
 			    	  			valor: '',
 			    	  			dataDaEntrega: ''
